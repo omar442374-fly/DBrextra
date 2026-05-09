@@ -84,8 +84,11 @@ public final class ExternalMergeSorter {
         private boolean exhausted;
 
         private BufferedRecordReader(Path filePath, int bufferSize) throws IOException {
+            if (bufferSize <= 0) {
+                throw new IllegalArgumentException("inputBufferSize must be greater than 0");
+            }
             this.reader = Files.newBufferedReader(filePath);
-            this.bufferSize = Math.max(1, bufferSize);
+            this.bufferSize = bufferSize;
         }
 
         private EmployeeRecord poll() throws IOException {
