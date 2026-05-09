@@ -3,6 +3,7 @@ package com.dbrextra;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -39,7 +40,7 @@ public final class EmployeeDataGenerator {
                         DEPARTMENTS[random.nextInt(DEPARTMENTS.length)],
                         30000 + random.nextDouble() * 120000));
             }
-            java.util.Collections.shuffle(records, random);
+            Collections.shuffle(records, random);
             Path filePath = inputDirectory.resolve(String.format("employees_%02d.csv", fileIndex));
             EmployeeFileManager.writeRecords(filePath, records);
             generatedFiles.add(filePath);

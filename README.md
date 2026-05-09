@@ -10,7 +10,7 @@ Java implementation of the **External Merge Sort for Large Employee Records** pr
 ## How to run
 
 ```bash
-cd /home/runner/work/DBrextra/DBrextra/external-merge-sort
+cd external-merge-sort
 mvn test
 mvn exec:java
 ```
